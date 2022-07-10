@@ -6,7 +6,7 @@ function NewsCard(props) {
   const { newsId, imgSrc, title, description } = props;
 
   return (
-    <Link to={`/news/${newsId}`}>
+    <Link to={`/news/${encodeURIComponent(newsId)}`}>
       <Card className="h-100">
         <Card.Img variant="top" src={imgSrc} />
         <Card.Body>

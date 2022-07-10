@@ -12,7 +12,8 @@ import styles from "./NewsDetails.module.css";
 import { getFormattedDate } from "../utils/date";
 
 function NewsDetails() {
-  const { newsId } = useParams();
+  let { newsId } = useParams();
+  newsId = decodeURIComponent(newsId);
   const newsDetailsEndpoint = getNewsDetailsEndpoint(newsId);
   const newsDetails = useFetch(newsDetailsEndpoint);
   const adaptedNewsDetails = getNewsDetails(newsDetails);

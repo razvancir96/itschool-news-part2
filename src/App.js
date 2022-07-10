@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Page404 from "./pages/Page404";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
@@ -8,23 +8,13 @@ import NewsDetails from "./pages/NewsDetails";
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/favorites">
-          <Favorites />
-        </Route>
-        <Route path="/category/:categoryId">
-          <NewsCategory />
-        </Route>
-        <Route path="/news/:newsId*">
-          <NewsDetails />
-        </Route>
-        <Route path="*">
-          <Page404 />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/category/:categoryId" element={<NewsCategory />} />
+        <Route path="/news/:newsId" element={<NewsDetails />} />
+        <Route path="*" element={<Page404 />} />
+      </Routes>
     </div>
   );
 }
